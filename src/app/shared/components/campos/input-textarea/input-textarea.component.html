@@ -1,0 +1,13 @@
+<div [formGroup]="formGroup">
+    <mat-form-field class="full-width">
+        <textarea  matInput 
+                   [placeholder]="titulo"
+                   [name]="controlName" 
+                   [formControlName]="controlName">
+        </textarea>           
+        <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'required')">Campo vazio favor insira um titulo! </mat-error>                
+        <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'minlength')" >Campo com menos de {{validacao.lenghtValidar(formControl, 'minlenght')}} caracteres!</mat-error>
+        <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'maxlength')" >Máximo de {{validacao.lenghtValidar(formControl, 'maxlenght')}} caracteres!</mat-error>   
+             
+</mat-form-field>
+</div>
